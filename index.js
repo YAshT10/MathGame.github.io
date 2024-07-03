@@ -15,7 +15,7 @@ function startTimer() {
             timerTag.innerText = "Seconds left: " + timeLeft;
         } else {
             clearInterval(timer);
-            alert('Time is up! Score : '+score);
+            alert('Time is up! Score : ' + score);
         }
     }, 1000);
 }
@@ -30,48 +30,53 @@ function generateMathProblem() {
     if (operator === '+') {
         num1 = Math.floor(Math.random() * 100) + 1;
         num2 = Math.floor(Math.random() * 100) + 1;
-        answer=num1+num2;
+        answer = num1 + num2;
     } else if (operator === '-') {
         num1 = Math.floor(Math.random() * 100) + 1;
         num2 = Math.floor(Math.random() * num1) + 1;
-        answer=num1-num2;
+        answer = num1 - num2;
     } else if (operator === '*') {
         num1 = Math.floor(Math.random() * 11) + 2;
         num2 = Math.floor(Math.random() * 11) + 2;
-        answer=num1*num2;
+        answer = num1 * num2;
     } else if (operator === '/') {
-        num1 = Math.floor(Math.random() * 11) + 2;
-        num2 = Math.floor(Math.random() * 99) + 2;
+        num1 = Math.floor(Math.random() * 99) + 2;
+        num2 = Math.floor(Math.random() * 11) + 2;
         num1 = num1 * num2; // Reverse the numbers for division
-        answer=num1/num2;
+        answer = num1 / num2;
     }
 
-    var problem =""+ num1 +" "+operator+" "+num2;
-    return {problem:answer};
+    var problem = "" + num1 + " " + operator + " " + num2;
+    // alert(problem+" = "+answer);
+    return { Q: problem, A: answer };
 }
 
-function game()
-{
+function game() {
     startpage = document.getElementById('startpage');
     startpage.style.display = "none";
     gamepage = document.getElementById('game');
     gamepage.style.display = "block";
-const key = generateMathProblem();
-document.getElementById('question').innerText = key.problem;
+    newQ();
+}
+function newQ()
+    {
+        const key = generateMathProblem();
+        document.getElementById('question').innerText = key.Q;
 
-const answerInput = document.getElementById('answer');
-const submitButton = document.getElementById('submit');
-
-submitButton.addEventListener('click', checkAnswer);
-
-function checkAnswer() {
-    const answer = answerInput.value;
-    if (answer === key.answer) {
-        // alert('Correct answer!');
-        score++;
-        document.getElementById('score').innerText = "Score :" + score;
-    } else {
-        alert('Incorrect answer!');
+        const answerInput = document.getElementById('answer');
+        answerInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+        function checkAnswer() {
+            const answer = answerInput.value;
+            if (answer === key.A.toString()) {
+                // alert('Correct answer!');
+                score++;
+                document.getElementById('score').innerText = "Score :" + score;
+                answerInput.value = '';
+                newQ();
+            }
+        }
     }
-}
-}
