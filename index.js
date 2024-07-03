@@ -34,8 +34,6 @@ function startTimer() {
 }
 document.getElementById('score').innerText = "Score :" + score;
 
-function game()
-{
 function generateMathProblem() {
     const operators = ['+', '-', '*', '/'];
     const operator = operators[Math.floor(Math.random() * operators.length)];
@@ -63,6 +61,13 @@ function generateMathProblem() {
     const problem = `${num1} ${operator} ${num2}`;
     return {problem:answer};
 }
+
+function game()
+{
+    startpage = document.getElementById('startpage');
+    startpage.style.display = "none";
+    gamepage = document.getElementById('gamepage');
+    gamepage.style.display = "block";
 const key = generateMathProblem();
 document.getElementById('question').innerText = key.problem;
 
