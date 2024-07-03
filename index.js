@@ -46,7 +46,7 @@ function generateMathProblem() {
         answer=num1/num2;
     }
 
-    const problem =""+ num1+operator+num2;
+    var problem =""+ num1 +" "+operator+" "+num2;
     return {problem:answer};
 }
 
