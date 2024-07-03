@@ -1,1 +1,21 @@
-
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(214, 117, 117);
+  }
+  
+  #quiz {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    text-align: left;
+    color: black;
+  }
+  
+  #question {
+    margin-bottom: 20px;
+  }
