@@ -1,6 +1,5 @@
 let score = 0;
 let timer;
-var document="index.html";
 const timerTag = document.getElementById('timer');
 const startButton = document.getElementById('start');
 startButton.addEventListener('click', startTimer);
