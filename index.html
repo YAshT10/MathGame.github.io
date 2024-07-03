@@ -9,16 +9,20 @@
   
   <body>
     <script src="/index.js"></script>
+    <div id="startpage">
+      <h1>Arithmetic Game</h1>
+      <button id="start">Start</button>
+    </div>
     <div id="game">
-      <span class="left"></span>
-      <span class="correct"></span>
-        <div class="start">
-          <span class="question"></span>
+      <span id="timer"></span>
+      <span id="score"></span>
+        <div id="card">
+          <span id="question"></span>
           =
-          <input class="answer">
+          <input id="answer">
         </div>
-        <div class="end">
-          <p class="correct"></p>
+        <div id="end">
+          <p id="final_score"></p>
           <p>
             <a href="/">Try again</a>
           </p>

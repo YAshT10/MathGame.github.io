@@ -1,5 +1,41 @@
 let score = 0;
+let timer;
+const timerTag = document.getElementById('timer');
+
+function startTimer() {
+    let timeLeft = 120; // 2 minutes in seconds
+
+    timer = setInterval(() => {
+        if (timeLeft > 0) {
+            timeLeft--;
+            timerTag.innerText = "Seconds left: " + timeLeft;
+        } else {
+            clearInterval(timer);
+            alert('Time is up! Score : '+score);
+        }
+    }, 1000);
+}
+const startButton = document.getElementById('start');
+
+startButton.addEventListener('click', startTimer);
+startButton.addEventListener('click', game);
+
+function startTimer() {
+    let timeLeft = 120; // 2 minutes in seconds
+
+    timer = setInterval(() => {
+        if (timeLeft > 0) {
+            timeLeft--;
+        } else {
+            clearInterval(timer);
+            alert('Time is up!');
+        }
+    }, 1000);
+}
 document.getElementById('score').innerText = "Score :" + score;
+
+function game()
+{
 function generateMathProblem() {
     const operators = ['+', '-', '*', '/'];
     const operator = operators[Math.floor(Math.random() * operators.length)];
@@ -40,7 +76,9 @@ function checkAnswer() {
     if (answer === key.answer) {
         alert('Correct answer!');
         score++;
+        document.getElementById('score').innerText = "Score :" + score;
     } else {
         alert('Incorrect answer!');
     }
+}
 }

@@ -1,23 +1,75 @@
+/* <body>
+    <script src="/index.js"></script>
+    <div id="startpage">
+      <h1>Arithmetic Game</h1>
+      <button id="start">Start</button>
+    </div>
+    <div id="game">
+      <span id="timer"></span>
+      <span id="score"></span>
+        <div id="card">
+          <span id="question"></span>
+          =
+          <input id="answer">
+        </div>
+        <div id="end">
+          <p id="final_score"></p>
+          <p>
+            <a href="/">Try again</a>
+          </p>
+      </div>
+    </div>
+</body> 
+*/
+/* generate styles for above elements */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  #quiz {
-    max-width: 5000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #d4d4d4;
-    border-radius: 5px;
-  }
-  
-  h1 {
-    text-align: left;
-    color: black;
-  }
-  
-  #question {
-    margin-bottom: 20px;
-    text-size-adjust: ;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+#startpage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#game {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+#answer {
+  width: 50px;
+  height: 30px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#end {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#final_score {
+  font-size: 24px;
+}
+
