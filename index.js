@@ -75,3 +75,4 @@ function checkAnswer() {
     }
 }
 }
+alert('Time is up! Score : '+score);
