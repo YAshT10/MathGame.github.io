@@ -6,6 +6,7 @@ startButton.addEventListener('click', startTimer);
 startButton.addEventListener('click', game);
 
 function startTimer() {
+    timerTag.style.display = 'block';
     let timeLeft = 120; // 2 minutes in seconds
 
     timer = setInterval(() => {
@@ -53,7 +54,7 @@ function game()
 {
     startpage = document.getElementById('startpage');
     startpage.style.display = "none";
-    gamepage = document.getElementById('gamepage');
+    gamepage = document.getElementById('game');
     gamepage.style.display = "block";
 const key = generateMathProblem();
 document.getElementById('question').innerText = key.problem;

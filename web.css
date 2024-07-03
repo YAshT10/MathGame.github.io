@@ -38,7 +38,7 @@ body {
   height: 100vh;
 }
 
-h1 {
+.headline {
     top: 20px;
     left: 20px;
     font-size: 36px;
