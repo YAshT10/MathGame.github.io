@@ -46,7 +46,7 @@ function generateMathProblem() {
         answer=num1/num2;
     }
 
-    const problem = `${num1} ${operator} ${num2}`;
+    const problem =""+ num1+operator+num2;
     return {problem:answer};
 }
 
@@ -67,7 +67,7 @@ submitButton.addEventListener('click', checkAnswer);
 function checkAnswer() {
     const answer = answerInput.value;
     if (answer === key.answer) {
-        alert('Correct answer!');
+        // alert('Correct answer!');
         score++;
         document.getElementById('score').innerText = "Score :" + score;
     } else {
