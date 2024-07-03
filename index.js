@@ -1,6 +1,10 @@
 let score = 0;
 let timer;
+var document="index.html";
 const timerTag = document.getElementById('timer');
+const startButton = document.getElementById('start');
+startButton.addEventListener('click', startTimer);
+startButton.addEventListener('click', game);
 
 function startTimer() {
     let timeLeft = 120; // 2 minutes in seconds
@@ -15,23 +19,7 @@ function startTimer() {
         }
     }, 1000);
 }
-const startButton = document.getElementById('start');
 
-startButton.addEventListener('click', startTimer);
-startButton.addEventListener('click', game);
-
-function startTimer() {
-    let timeLeft = 120; // 2 minutes in seconds
-
-    timer = setInterval(() => {
-        if (timeLeft > 0) {
-            timeLeft--;
-        } else {
-            clearInterval(timer);
-            alert('Time is up!');
-        }
-    }, 1000);
-}
 document.getElementById('score').innerText = "Score :" + score;
 
 function generateMathProblem() {
