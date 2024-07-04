@@ -7,7 +7,7 @@ startButton.addEventListener('click', game);
 
 function startTimer() {
     timerTag.style.display = 'block';
-    let timeLeft = 120; // 2 minutes in seconds
+    let timeLeft = 10; // 2 minutes in seconds
 
     timer = setInterval(() => {
         if (timeLeft > 0) {
@@ -15,7 +15,10 @@ function startTimer() {
             timerTag.innerText = "Seconds left: " + timeLeft;
         } else {
             clearInterval(timer);
-            alert('Time is up! Score : ' + score);
+            document.getElementById('game').style.display = "none";
+            document.getElementById('end').style.display = "block";
+            document.getElementById('final_score').innerText = "Score :" + score;
+            // alert('Time is up! Score : ' + score);
         }
     }, 1000);
 }
@@ -36,8 +39,8 @@ function generateMathProblem() {
         num2 = Math.floor(Math.random() * num1) + 1;
         answer = num1 - num2;
     } else if (operator === '*') {
-        num1 = Math.floor(Math.random() * 11) + 2;
-        num2 = Math.floor(Math.random() * 11) + 2;
+        num1 = Math.floor(Math.random() * 99) + 2;
+        num2 = Math.floor(Math.random() * 12) + 2;
         answer = num1 * num2;
     } else if (operator === '/') {
         num1 = Math.floor(Math.random() * 99) + 2;
@@ -46,7 +49,7 @@ function generateMathProblem() {
         answer = num1 / num2;
     }
 
-    var problem = "" + num1 + " " + operator + " " + num2;
+    var problem = `${num1} ${operator} ${num2}`;
     // alert(problem+" = "+answer);
     return { Q: problem, A: answer };
 }
@@ -60,6 +63,7 @@ function game() {
 }
 function newQ()
     {
+        document.getElementById('comment').style.display = "none";
         const key = generateMathProblem();
         document.getElementById('question').innerText = key.Q;
 
@@ -77,6 +81,10 @@ function newQ()
                 document.getElementById('score').innerText = "Score :" + score;
                 answerInput.value = '';
                 newQ();
+            }
+            else
+            {
+                document.getElementById('comment').style.display = "block";
             }
         }
     }
