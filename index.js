@@ -7,7 +7,7 @@ startButton.addEventListener('click', game);
 
 function startTimer() {
     timerTag.style.display = 'block';
-    let timeLeft = 10; // 2 minutes in seconds
+    let timeLeft = 120; // 2 minutes in seconds
 
     timer = setInterval(() => {
         if (timeLeft > 0) {
