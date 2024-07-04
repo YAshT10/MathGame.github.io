@@ -46,10 +46,17 @@ h1 {
 }
 
 #start {
-  font-size: 24px;
+  font-size: 20px;
   padding: 10px 20px;
   border: none;
   background-color: #747475;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#start:hover {
+  background-color: #555555;
 }
 
 #comment
