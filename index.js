@@ -7,23 +7,23 @@ startButton.addEventListener('click', game);
 
 function startTimer() {
     timerTag.style.display = 'block';
-    let timeLeft = 120; // 2 minutes in seconds
+    let timeLeft = document.getElementById("time").value *60; // 2 minutes in seconds
 
     timer = setInterval(() => {
         if (timeLeft > 0) {
             timeLeft--;
-            timerTag.innerText = "Seconds left: " + timeLeft;
+            timerTag.innerText = "Seconds left : " + timeLeft;
         } else {
             clearInterval(timer);
             document.getElementById('game').style.display = "none";
             document.getElementById('end').style.display = "block";
-            document.getElementById('final_score').innerText = "Score :" + score;
+            document.getElementById('final_score').innerText = "Score : " + score;
             // alert('Time is up! Score : ' + score);
         }
     }, 1000);
 }
 
-document.getElementById('score').innerText = "Score :" + score;
+document.getElementById('score').innerText = "Score : " + score;
 
 function generateMathProblem() {
     const operators = ['+', '-', '*', '/'];
